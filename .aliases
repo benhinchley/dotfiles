@@ -1,0 +1,2 @@
+alias tower='open /opt/homebrew-cask/Caskroom/tower/latest/Tower.app'
+alias repos='cd ~/Repositories && ls -f'
