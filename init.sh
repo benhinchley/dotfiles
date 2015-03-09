@@ -40,6 +40,7 @@ cecho ".osx done" $green
 echo ""
 
 ln -s ~/repositories/dotfiles/.aliases ~/.oh-my-zsh/custom/aliases.zsh
+ln -s ~/repositories/dotfiles/.functions ~/.oh-my-zsh/custom/functions.zsh
 
 echo ""
 cecho "###############################################" $green
