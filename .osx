@@ -180,8 +180,11 @@ sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Aut
 
 echo ""
 echo "Disabling keyboard from automatically adjusting backlight brightness in low light"
-
 sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Keyboard Enabled" -bool false
+
+echo ""
+echo "Disabling auto-correct"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 ###############################################################################
 # Screen
