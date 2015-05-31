@@ -1,3 +1,5 @@
 alias tower='open /opt/homebrew-cask/Caskroom/tower/latest/Tower.app'
 alias repos='cd ~/Repositories && ls -f'
-alias serve="python -m SimpleHTTPServer 4567"
+alias serve='python -m SimpleHTTPServer 4567'
+alias boneless='cd ~/Repositories/boneless && atom'
+alias atom='atom .'
