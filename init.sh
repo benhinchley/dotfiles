@@ -43,6 +43,16 @@ ln -s ~/repositories/dotfiles/.aliases ~/.oh-my-zsh/custom/aliases.zsh
 ln -s ~/repositories/dotfiles/.functions ~/.oh-my-zsh/custom/functions.zsh
 
 echo ""
+cecho "installing homebrew, tooling and applications" $green
+echo ""
+
+source .homebrew
+
+echo ""
+cecho "homebrew installed" $green
+echo ""
+
+echo ""
 cecho "###############################################" $green
 cecho "#           YOUR MAC IS NOW AWESOME           #" $green
 cecho "###############################################" $green
