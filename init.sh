@@ -39,8 +39,14 @@ echo ""
 cecho ".osx done" $green
 echo ""
 
-ln -s ~/repositories/dotfiles/.aliases ~/.oh-my-zsh/custom/aliases.zsh
-ln -s ~/repositories/dotfiles/.functions ~/.oh-my-zsh/custom/functions.zsh
+echo ""
+cecho "installing oh-my-zsh and symlinking aliases and functions" $green
+echo ""
+
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+ln -s ~/dotfiles/.aliases ~/.oh-my-zsh/custom/aliases.zsh
+ln -s ~/dotfiles/.functions ~/.oh-my-zsh/custom/functions.zsh
 
 echo ""
 cecho "installing homebrew, tooling and applications" $green
@@ -50,6 +56,16 @@ source .homebrew
 
 echo ""
 cecho "homebrew installed" $green
+echo ""
+
+echo ""
+cecho "making Repositories folder" $green
+echo ""
+
+mkdir Repositories
+
+echo ""
+cecho "repositories folder created" $green
 echo ""
 
 echo ""

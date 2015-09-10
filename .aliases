@@ -1,6 +1,3 @@
-alias tower='open /opt/homebrew-cask/Caskroom/tower/latest/Tower.app'
+alias dotfiles='cd ~/dotfiles && atom .'
 alias repos='cd ~/Repositories && ls -f'
-alias serve='python -m SimpleHTTPServer 4567'
-alias boneless='cd ~/Repositories/boneless && atom'
-alias spinifex-random='/Volumes/Storage\ HD/Dropbox/Spinifex\ Work/2015/spinifex-random'
 alias atom='atom .'

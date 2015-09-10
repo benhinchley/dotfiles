@@ -1,1 +1,2 @@
-
+function gi() { curl -L -s https://www.gitignore.io/api/"$@" ;}
+function serve() { python -m SimpleHTTPServer $1 ;}

@@ -1,7 +1,9 @@
+#!/bin/sh
+
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install caskroom/cask/brew-cask
 
-brew install git ruby node
+brew install git node
 
-brew cask install iterm2 1password kaleidoscope dropbox slack atom caffeine google-chrome versions tower bartender firefox sketch flux spotify evernote spectacle
+brew cask install 1password caffeine firefox iterm2 opera spectacle tower alfred daisydisk flux kaleidoscope sketch spotify versions atom dropbox google-chrome omnifocus slack todoist
