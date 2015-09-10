@@ -1,3 +1,10 @@
+#!/bin/zsh
+
 alias dotfiles='cd ~/dotfiles && atom .'
 alias repos='cd ~/Repositories && ls -f'
 alias atom='atom .'
+
+alias n='npm'
+alias nis='npm i -S'
+alias nid='npm i -D'
+alias nr='npm run'
