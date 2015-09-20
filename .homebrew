@@ -4,6 +4,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 brew install caskroom/cask/brew-cask
 
+# Install the latest versions of git and node
 brew install git node
 
+# Install applicaitons
 brew cask install 1password caffeine firefox iterm2 opera spectacle tower alfred daisydisk flux kaleidoscope sketch spotify versions atom dropbox google-chrome omnifocus slack todoist

@@ -1,5 +1,3 @@
 # .dotfiles
 
-Run with ```sh init.sh```
-
-## Todo
+Run `sh init.sh` to setup. 

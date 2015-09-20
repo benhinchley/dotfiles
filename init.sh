@@ -34,11 +34,6 @@ echo ""
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-source .osx
-echo ""
-cecho ".osx done" $green
-echo ""
-
 echo ""
 cecho "installing oh-my-zsh and symlinking aliases and functions" $green
 echo ""
@@ -47,6 +42,20 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 ln -s ~/dotfiles/.aliases ~/.oh-my-zsh/custom/aliases.zsh
 ln -s ~/dotfiles/.functions ~/.oh-my-zsh/custom/functions.zsh
+
+echo ""
+cecho "oh-my-zsh install done" $green
+echo ""
+
+echo ""
+cecho "running .osx" $green
+echo ""
+
+source .osx
+
+echo ""
+cecho ".osx done" $green
+echo ""
 
 echo ""
 cecho "installing homebrew, tooling and applications" $green
