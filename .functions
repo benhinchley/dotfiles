@@ -8,5 +8,5 @@ function new-project() {
   rm -rf .git
   git init && git add . && git commit -m 'Initial Commit'
   npm install && bower install
-  npm run watch
+  atom && npm run watch
 }
