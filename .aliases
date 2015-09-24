@@ -3,6 +3,7 @@
 alias dotfiles='cd ~/dotfiles && atom .'
 alias repos='cd ~/Repositories && ls'
 alias atom='atom .'
+alias tower='gittower .'
 
 alias n='npm'
 alias ni='npm i'
