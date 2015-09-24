@@ -2,3 +2,11 @@
 
 function gi() { curl -L -s https://www.gitignore.io/api/"$@" ;}
 function serve() { python -m SimpleHTTPServer $1 ;}
+function new-project() {
+  mkdir $1 && cd $1
+  git clone git@github.com:benhinchley/project-boilerplate.git .
+  rm -rf .git
+  git init && git add . && git commit -m 'Initial Commit'
+  npm install && bower install
+  npm run watch
+}
