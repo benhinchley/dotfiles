@@ -3,7 +3,9 @@
 alias dotfiles='cd ~/dotfiles && atom .'
 alias repos='cd ~/Repositories && ls'
 alias atom='atom .'
+alias v='mvim'
 alias tower='gittower .'
+alias transmit='open /applications/transmit.app'
 
 alias n='npm'
 alias ni='npm i'
