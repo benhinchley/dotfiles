@@ -42,6 +42,12 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 ln -s ~/dotfiles/.aliases ~/.oh-my-zsh/custom/aliases.zsh
 ln -s ~/dotfiles/.functions ~/.oh-my-zsh/custom/functions.zsh
+
+echo ""
+cecho "setting up vim" $green
+echo ""
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ln -s ~/dotfiles/vimrc ~/.vimrc
 
 echo ""
