@@ -2,10 +2,13 @@
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install caskroom/cask/brew-cask
+brew tap caskroom/cask
 
-# Install the latest versions of git and node
-brew install git node
+# Install the latest versions of git, node, python 2 & 3 and go
+brew install git node python python3 go
+
+# Install macvim
+brew install macvim
 
 # Install applicaitons
-brew cask install 1password caffeine firefox iterm2 opera spectacle tower alfred daisydisk flux kaleidoscope sketch spotify versions atom dropbox google-chrome omnifocus slack todoist
+brew cask install iterm2 1password caffeine spectacle tower alfred flux kaleidoscope spotify atom dropbox google-chrome slack
