@@ -43,7 +43,6 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 ln -s ~/dotfiles/.aliases ~/.oh-my-zsh/custom/aliases.zsh
 ln -s ~/dotfiles/.functions ~/.oh-my-zsh/custom/functions.zsh
 ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
 echo ""
 cecho "oh-my-zsh install done" $green
