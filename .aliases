@@ -1,14 +1,11 @@
 #!/bin/zsh
 
-alias dotfiles='cd ~/dotfiles && vim .'
+alias dotfiles='cd ~/dotfiles && mim'
 alias repos='cd ~/Repositories && ls'
 alias atom='atom .'
-alias v='mvim -v'
-alias vim='mvim -v'
+alias mim='mvim'
 alias tower='gittower .'
-alias transmit='open /applications/transmit.app'
 
-alias n='npm'
 alias ni='npm i'
 alias nig='npm i -g'
 alias nis='npm i -S'

@@ -10,3 +10,4 @@ function new-project() {
   npm install && bower install
   atom && npm run watch
 }
+function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
