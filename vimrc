@@ -101,6 +101,9 @@ noremap <ScrollWheelRight>   <nop>
 noremap <S-ScrollWheelRight> <nop>
 noremap <C-ScrollWheelRight> <nop>
 
+" make
+noremap <F9> :make<CR>
+
 " go
 let g:go_fmt_command = "goimports"
 
