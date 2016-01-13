@@ -1,16 +1,29 @@
 " plugins
 call plug#begin('~/.vim/plugged')
 " look of vim
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 " helpers
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
+Plug 'mbbill/undotree'
 " language specific things
 Plug 'fatih/vim-go'
+Plug 'othree/yajs.vim'
+Plug 'OrangeT/vim-csharp'
+Plug 'justbrettjones/vim-swigjs'
 call plug#end()
+
+" Ignores
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 set nocompatible
 set laststatus=2
@@ -32,10 +45,13 @@ set shiftwidth=2
 set smarttab
 
 " NERDTree things
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 55
 " close vim if NERDTree is the only thing open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" undotree stuff
+let g:undotree_SplitWidth = 55
 
 " set relative numbers
 autocmd InsertEnter * :set number
@@ -46,8 +62,8 @@ if has('gui_running')
   set guifont=Hack:h11
 endif
 
-colorscheme solarized
-set background=dark
+colorscheme molokai
+"set background=dark
 let g:airline_powerline_fonts = 1
 
 " column markers
@@ -67,6 +83,9 @@ nnoremap : ;
 
 " NERDtree toggle
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+" undotree toggle
+nnoremap <F6> :UndotreeToggle<cr>
 
 " get rid of the mouse
 noremap <ScrollWheelUp>      <nop>
