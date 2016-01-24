@@ -6,7 +6,9 @@ Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
+Plug 'majutsushi/tagbar'
 " helpers
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -14,6 +16,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mbbill/undotree'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+Plug 'rizzatti/dash.vim'
 " language specific things
 Plug 'fatih/vim-go'
 Plug 'othree/yajs.vim'
@@ -70,6 +75,9 @@ let g:airline_powerline_fonts = 1
 highlight ColorColumn guibg=magenta guifg=white ctermbg=magenta ctermfg=white
 :call matchadd('ColorColumn', '\%101v', 100)
 
+" diable session autosave
+let g:session_autosave = 'no'
+
 " KEY REMAPS
 " disable arrow keys
 noremap <Up> <NOP>
@@ -103,6 +111,15 @@ noremap <C-ScrollWheelRight> <nop>
 
 " make
 noremap <F9> :make<CR>
+
+" tagebar
+noremap <F8> :TagbarToggle<CR>
+
+" make pane movement simpler
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " go
 let g:go_fmt_command = "goimports"
