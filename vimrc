@@ -65,6 +65,8 @@ autocmd InsertLeave * :set relativenumber
 " set colorscheme
 if has('gui_running')
   set guifont=Hack:h11
+  set guioptions-=r
+  set guioptions-=L
 endif
 
 colorscheme molokai
