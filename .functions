@@ -2,12 +2,12 @@
 
 function gi() { curl -L -s https://www.gitignore.io/api/"$@" ;}
 function serve() { [ $1 ] && port=$1 || port=4567; python -m SimpleHTTPServer $port ;}
-function new-project() {
-  mkdir $1 && cd $1
-  git clone git@github.com:benhinchley/project-boilerplate.git .
-  rm -rf .git
-  git init && git add . && git commit -m 'Initial Commit'
-  npm install && bower install
-  atom && npm run watch
-}
 function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+function init() {
+  mkdir $1 && cd $_
+  git init
+  curl https://gist.githubusercontent.com/benhinchley/a1527410e419caefcd30/raw/01159c33f3e730d87b0f6bdebe97435b14c3ce9c/.editorconfig > .editorconfig
+  git add .editorconfig && git commit -m 'add .editorconfig'
+  gi $2 > .gitignore
+  git add .gitignore && git commit -m 'add .gitignore'
+}
