@@ -47,7 +47,15 @@ endif
 
 colorscheme solarized
 set background=dark
+
+" powerline fonts
 let g:airline_powerline_fonts = 1
+
+" remove scrollbars
+if has('gui_running')
+  set guioptions-=r
+  set guioptions-=L
+endif
 
 " column markers
 highlight ColorColumn guibg=magenta guifg=white ctermbg=magenta ctermfg=white
