@@ -1,26 +1,25 @@
 " plugins
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 " look of vim
-"Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'majutsushi/tagbar'
 " helpers
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer', 'for': ['rust','go'] }
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'mbbill/undotree'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'rizzatti/dash.vim'
 " language specific things
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'othree/yajs.vim'
 Plug 'OrangeT/vim-csharp'
 Plug 'justbrettjones/vim-swigjs'
@@ -30,45 +29,24 @@ call plug#end()
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
-set nocompatible
-set laststatus=2
-
-set ffs=unix,dos
-
-syntax enable
-filetype plugin indent on
-
-set hidden
-set backspace=indent,eol,start
-set history=100
-set number
-
-set tabstop=4
-set softtabstop=0
-set expandtab
-set shiftwidth=2
-set smarttab
-
 " NERDTree things
 let NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 55
 " close vim if NERDTree is the only thing open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" undotree stuff
-let g:undotree_SplitWidth = 55
-
 " set relative numbers
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+set relativenumber
 
 " set colorscheme
 if has('gui_running')
   set guifont=Hack:h11
+else
+  let g:solarized_termtrans=1
 endif
 
-colorscheme molokai
-"set background=dark
+colorscheme solarized
+set background=dark
 let g:airline_powerline_fonts = 1
 
 " column markers
@@ -91,9 +69,6 @@ nnoremap : ;
 
 " NERDtree toggle
 nnoremap <C-n> :NERDTreeToggle<CR>
-
-" undotree toggle
-nnoremap <F6> :UndotreeToggle<cr>
 
 " get rid of the mouse
 noremap <ScrollWheelUp>      <nop>
