@@ -1,32 +1,32 @@
-" plugins
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
-" look of vim
+
 Plug 'altercation/vim-colors-solarized'
-Plug 'bling/vim-airline'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'majutsushi/tagbar'
-" helpers
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer', 'for': ['rust','go'] }
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'kien/ctrlp.vim'
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
+
+Plug 'airblade/vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'bronson/vim-trailing-whitespace'
+
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar', { 'for': ['go', 'rust'] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer', 'for': ['rust','go'] }
+
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+
 Plug 'rizzatti/dash.vim'
-" language specific things
+
 Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'othree/yajs.vim'
-Plug 'OrangeT/vim-csharp'
-Plug 'justbrettjones/vim-swigjs'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 call plug#end()
 
-" Ignores
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+" ctrl-p
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 " NERDTree things
@@ -35,8 +35,18 @@ let g:NERDTreeWinSize = 55
 " close vim if NERDTree is the only thing open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" set relative numbers
-set relativenumber
+" set relative numbers on active window
+augroup toggle_relative_number
+    autocmd!
+    autocmd InsertEnter * :setlocal norelativenumber
+    autocmd InsertLeave * :setlocal relativenumber
+augroup END
+
+" persitant undo
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.vim/undodir
+endif
 
 " set colorscheme
 if has('gui_running')
@@ -48,7 +58,8 @@ endif
 colorscheme solarized
 set background=dark
 
-" powerline fonts
+" airline
+let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 
 " remove scrollbars
@@ -112,3 +123,13 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
