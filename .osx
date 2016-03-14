@@ -33,21 +33,9 @@ echo ""
 echo "Hiding the Spotlight icon"
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
-# echo ""
-# echo "Disabling Spotlight indexing for any volume that gets mounted and has not yet been indexed before? (y/n)"
-# echo 'Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.'
-# sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-
 echo ""
 echo "Changing indexing order and disable some search results in Spotlight?"
 
-# Yosemite-specific search results (remove them if your are using OS X 10.9 or older):
-#   MENU_DEFINITION
-#   MENU_CONVERSION
-#   MENU_EXPRESSION
-#   MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
-#   MENU_WEBSEARCH             (send search queries to Apple)
-#   MENU_OTHER
 defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 1;"name" = "APPLICATIONS";}' \
   '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
@@ -88,7 +76,6 @@ echo ""
 echo "Automatically quit printer app once the print jobs complete"
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
 echo ""
 echo "Displaying ASCII control characters using caret notation in standard text views"
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
@@ -109,11 +96,6 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 echo ""
 echo "Removing duplicates in the 'Open With' menu"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
-
-# echo ""
-# echo "Disabling smart quotes and smart dashes"
-# defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-# defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 ###############################################################################
 # General Power and Performance modifications
@@ -414,7 +396,7 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Kill affected applications
 ###############################################################################
 
-cecho "################################################################################" $white
+
 echo ""
 echo ""
 cecho "Note that some of these changes require a logout/restart to take effect." $red
@@ -424,6 +406,6 @@ echo ""
 find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   "Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" \
-  "Terminal" "Transmission"; do
+  "Transmission"; do
   killall "${app}" > /dev/null 2>&1
 done
