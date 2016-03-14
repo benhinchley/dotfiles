@@ -9,5 +9,6 @@
 .-.\|  |_)(_|  |    |      |  |  `---.\       /
 `-' `--'    `--'    `------'  `------' `-----'
 ```
+**License:** [WTFPL](LICENSE)
 
 Run `sh init.sh` to setup.
