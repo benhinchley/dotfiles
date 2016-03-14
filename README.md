@@ -11,4 +11,4 @@
 ```
 **License:** [WTFPL](LICENSE)
 
-Run `sh init.sh` to setup.
+Run `sh setup.sh` to setup.
