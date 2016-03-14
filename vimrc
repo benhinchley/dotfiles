@@ -24,6 +24,7 @@ Plug 'rizzatti/dash.vim'
 
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'fatih/vim-hclfmt', { 'for': 'tf' }
 call plug#end()
 
 " ctrl-p
