@@ -2,7 +2,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'mhinz/vim-startify'
+
+Plug 'benhinchley/ghost'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -36,7 +38,8 @@ let g:NERDTreeWinSize = 55
 " close vim if NERDTree is the only thing open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" set relative numbers on active window
+" set relative numbers
+set relativenumber
 augroup toggle_relative_number
     autocmd!
     autocmd InsertEnter * :setlocal norelativenumber
@@ -52,16 +55,14 @@ endif
 " set colorscheme
 if has('gui_running')
   set guifont=Hack:h11
-else
-  let g:solarized_termtrans=1
 endif
 
-colorscheme solarized
 set background=dark
+colorscheme ghost
 
 " airline
-let g:airline_theme='solarized'
-let g:airline_powerline_fonts = 1
+let g:airline_theme='ghost'
+let g:airline_powerline_fonts=0
 
 " remove scrollbars
 if has('gui_running')
@@ -70,7 +71,7 @@ if has('gui_running')
 endif
 
 " column markers
-highlight ColorColumn guibg=magenta guifg=white ctermbg=magenta ctermfg=white
+highlight ColorColumn guibg=white guifg=magenta ctermbg=magenta ctermfg=white
 :call matchadd('ColorColumn', '\%101v', 100)
 
 " diable session autosave
