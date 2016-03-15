@@ -110,7 +110,7 @@ if [[ $OS == "OSX" ]]
 then
     cecho "Configuring OS X" $green
     pushd .
-    #source .osx
+    source .osx
     popd
     [ -d /usr/local/Cellar ] || {
 	cecho "Installing homebrew and brews" $green
