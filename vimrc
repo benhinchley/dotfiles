@@ -5,7 +5,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'mhinz/vim-startify'
 
 Plug 'benhinchley/ghost'
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'kien/ctrlp.vim'
@@ -17,7 +17,7 @@ Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar', { 'for': ['go', 'rust'] }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer', 'for': ['rust','go'] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer', 'for': ['go', 'rust'] }
 
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
@@ -71,7 +71,6 @@ if has('gui_running')
 endif
 
 " column markers
-highlight ColorColumn guibg=white guifg=magenta ctermbg=magenta ctermfg=white
 :call matchadd('ColorColumn', '\%101v', 100)
 
 " diable session autosave
@@ -120,11 +119,11 @@ nnoremap <C-H> <C-W><C-H>
 " go
 let g:go_fmt_command = "goimports"
 
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+"let g:go_highlight_functions = 1
+"let g:go_highlight_methods = 1
+"let g:go_highlight_structs = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_build_constraints = 1
 
 " syntastic
 set statusline+=%#warningmsg#
