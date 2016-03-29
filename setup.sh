@@ -1,13 +1,13 @@
 #!/bin/bash
 
-                                #('-.    .-')
-                              #_(  OO)  ( OO ).
-    #,------.,-.-')  ,--.     (,------.(_)---\_)
- #('-| _.---'|  |OO) |  |.-')  |  .---'/    _ |
- #(OO|(_\    |  |  \ |  | OO ) |  |    \  :` `.
- #/  |  '--. |  |(_/ |  |`-' |(|  '--.  '..`''.)
- #\_)|  .--',|  |_.'(|  '---.' |  .--' .-._)   \
-#.-.\|  |_)(_|  |    |      |  |  `---.\       /
+#('-.    .-')
+#_(  OO)  ( OO ).
+#,------.,-.-')  ,--.     (,------.(_)---\_)
+#('-| _.---'|  |OO) |  |.-')  |  .---'/    _ |
+#(OO|(_\    |  |  \ |  | OO ) |  |    \  :` `.
+#/  |  '--. |  |(_/ |  |`-' |(|  '--.  '..`''.)
+#\_)|  .--',|  |_.'(|  '---.' |  .--' .-._)   \
+    #.-.\|  |_)(_|  |    |      |  |  `---.\       /
 #`-' `--'    `--'    `------'  `------' `-----'
 #
 # Author: Benjamin Hinchley
@@ -26,35 +26,30 @@ cyan='\033[0;36m'
 alias Reset="tput sgr0"
 
 cecho() {
-	echo "${2}${1}"
-	Reset
-	return
+    echo "${2}${1}"
+    Reset
+    return
 }
 
 err() {
-	cecho "${1}" $red
+    cecho "${1}" $red
 }
 
 details() {
-	echo ""
-	cecho "                                ('-.    .-')    " $blue
-	cecho "                              _(  OO)  ( OO ).  " $blue
-	cecho "    ,------.,-.-')  ,--.     (,------.(_)---\_) " $blue
-	cecho " ('-| _.---'|  |OO) |  |.-')  |  .---'/    _ |  " $blue
-	cecho " (OO|(_\    |  |  \ |  | OO ) |  |    \  :\` \`.  " $blue
-	cecho " /  |  '--. |  |(_/ |  |\`-' |(|  '--.  '..\`''.) " $blue
-	cecho " \_)|  .--',|  |_.'(|  '---.' |  .--' .-._)   \ " $blue
-	cecho ".-.\|  |_)(_|  |    |      |  |  \`---.\       / " $blue
-	cecho "\`-' \`--'    \`--'    \`------'  \`------' \`-----'  " $blue
-	echo ""
-	cecho "Author: \tBenjamin Hinchley" $white
-	cecho "License: \tWTFPL" $white
-	echo ""
-}
-
-fresh() {
-    sleep 5
-    sudo shutdown -r now "Rebooting Now"
+    echo ""
+    cecho "                                ('-.    .-')    " $blue
+    cecho "                              _(  OO)  ( OO ).  " $blue
+    cecho "    ,------.,-.-')  ,--.     (,------.(_)---\_) " $blue
+    cecho " ('-| _.---'|  |OO) |  |.-')  |  .---'/    _ |  " $blue
+    cecho " (OO|(_\    |  |  \ |  | OO ) |  |    \  :\` \`.  " $blue
+    cecho " /  |  '--. |  |(_/ |  |\`-' |(|  '--.  '..\`''.) " $blue
+    cecho " \_)|  .--',|  |_.'(|  '---.' |  .--' .-._)   \ " $blue
+    cecho ".-.\|  |_)(_|  |    |      |  |  \`---.\       / " $blue
+    cecho "\`-' \`--'    \`--'    \`------'  \`------' \`-----'  " $blue
+    echo ""
+    cecho "Author: \tBenjamin Hinchley" $white
+    cecho "License: \tWTFPL" $white
+    echo ""
 }
 
 details
@@ -64,9 +59,9 @@ echo ""
 cecho "Checking what platform your on." $blue
 if [[ $OSTYPE == *"darwin"* ]]
 then
-	OS="OSX"
+    OS="OSX"
 else
-	OS="IDK"
+    OS="IDK"
 fi
 
 echo "It looks like your running ${OS}"
@@ -80,55 +75,49 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo ""
 cecho "Checking what needs to happen." $blue
 
-
-[ -d ${HOME}/.oh-my-zsh ] || {
-cecho "Installing Oh-my-Zsh" $green
-pushd ${HOME}
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-popd
-}
-
-[ -f ${HOME}/.oh-my-zsh/custom/aliases.zsh ] || {
-cecho "Symlinking aliases and functions" $green
-ln -s ~/dotfiles/.aliases ~/.oh-my-zsh/custom/aliases.zsh
-ln -s ~/dotfiles/.functions ~/.oh-my-zsh/custom/functions.zsh
-}
-
-[ -d ${HOME}/.vim ] || {
-cecho "Installing vim-plug" $green
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-
-[ -f ${HOME}/.vimrc ] || {
-cecho "Symlinking vimrc and overwriting if already exits" $green
-ln -sf ~/dotfiles/vimrc ~/.vimrc
-}
-
-
 if [[ $OS == "OSX" ]]
 then
-    cecho "Configuring OS X" $green
-    pushd .
-    source .osx
-    popd
     [ -d /usr/local/Cellar ] || {
 	cecho "Installing homebrew and brews" $green
-	pushd .
-	source .homebrew
+	pushd ${HOME}
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+	brew install bash vim git tmux z
+	echo /usr/local/bin/bash >> /etc/shells
+	chsh -s /usr/local/bin/bash
+
+	brew tap caskroom/cask
+	brew cask install iterm2 caffeine spectacle tower alfred flux kaleidoscope google-chrome
 	popd
     }
 fi
 
-cecho "Setting up dev environment" $green
-pushd ${HOME}
-grep 'export GOPATH=' .zshrc || {
-echo export GOPATH=${HOME}/Workspace | tee -a .zshrc
-zsh -ic "source ${HOME}/.zshrc"
-mkdir -p $GOPATH
-}
-popd
+if [ -f "${HOME}/.bash_profile" ] || [ -h "${HOME}/.bash_profile" ]; then
+    cecho "Found ~/.bash_profile, backing up to ~/.bash_profile.old" $green
+    mv ~/.bash_profile ~/.bash_profile.old
+    cecho "symlinking .bash_profile" $green
+    ln -sf ~/dotfiles/bash/bash_profile ~/.bash_profile
+fi
 
+if [ -f "${HOME}/.bashrc" ] || [ -h "${HOME}/.bashrc" ]; then
+    cecho "Found ~/.bashrc, backing up to ~/.bashrc.old" $green
+    mv ~/.bashrc ~/.bashrc.old
+    cecho "symlinking .bashrc" $green
+    ln -sf ~/dotfiles/bash/bashrc ~/.bashrc
+fi
+
+[ -d ${HOME}/.vim ] || {
+    cecho "Installing vim-plug" $green
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
+[ -f ${HOME}/.vimrc ] || {
+    cecho "Symlinking vimrc and overwriting if already exits" $green
+    ln -sf ~/dotfiles/vimrc ~/.vimrc
+}
+
+cecho "Setting up dev environment" $green
 [ -d ${HOME}/Repositories ] || ( mkdir -p ${HOME}/Repositories )
 [ -d ${HOME}/Projects ] || ( mkdir -p ${HOME}/Projects )
 
