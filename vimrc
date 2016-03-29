@@ -4,7 +4,8 @@ Plug 'tpope/vim-sleuth'
 
 Plug 'mhinz/vim-startify'
 
-Plug 'benhinchley/ghost'
+"Plug 'benhinchley/ghost'
+Plug '~/Repositories/ghost'
 Plug 'vim-airline/vim-airline'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -17,13 +18,14 @@ Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar', { 'for': ['go', 'rust'] }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer', 'for': ['go', 'rust'] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer'}
 
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 
 Plug 'rizzatti/dash.vim'
 
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'fatih/vim-hclfmt', { 'for': 'tf' }
