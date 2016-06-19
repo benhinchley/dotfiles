@@ -30,7 +30,7 @@ export PS1='\A \W ${git_branch}${git_dirty}\n\$ '
 . $(brew --prefix)/etc/profile.d/z.sh
 
 # aliases
-alias ls="ls -lah"
+alias lsl="ls -lah"
 alias mkdir="mkdir -p"
 alias ping="ping -c 10"
 alias tower="gittower ."
@@ -46,5 +46,3 @@ if [[ -f ${HOME}/.env ]]; then
 	. ${HOME}/.env
 fi
 
-
-export PATH="$HOME/.cargo/bin:$PATH"
