@@ -35,6 +35,7 @@ alias mkdir="mkdir -p"
 alias ping="ping -c 10"
 alias tower="gittower ."
 alias repos='sd ~/Repositories && ls'
+alias git=hub
 
 # functions
 function sd() { cd $1 && clear ;}
