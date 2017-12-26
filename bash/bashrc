@@ -1,49 +1,31 @@
-shopt -s autocd
+# bashrc
 
-find_git_branch() {
-	# Based on: http://stackoverflow.com/a/13003854/170413
-	local branch
-	if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
-		if [[ "$branch" == "HEAD" ]]; then
-			branch='detached*'
-		fi
-		git_branch="($branch)"
-	else
-		git_branch=""
-	fi
-}
-
-find_git_dirty() {
-	local status=$(git status --porcelain 2> /dev/null)
-	if [[ "$status" != "" ]]; then
-		git_dirty='*'
-	else
-		git_dirty=''
-	fi
-}
-
-PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
-
-export PS1='\A \W ${git_branch}${git_dirty}\n\$ '
+export PS1='\A \W\n\$ '
 
 # z
-. $(brew --prefix)/etc/profile.d/z.sh
+if [ -f "$(brew --prefix)/etc/profile.d/z.sh" ]; then
+	source "$(brew --prefix)/etc/profile.d/z.sh"
+fi
+
+# bash completetion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	source $(brew --prefix)/etc/bash_completion
+fi
 
 # aliases
 alias lsl="ls -lah"
 alias mkdir="mkdir -p"
 alias ping="ping -c 10"
-alias tower="gittower ."
-alias repos='sd ~/Repositories && ls'
 alias git=hub
+alias m=make
 
 # functions
-function sd() { cd $1 && clear ;}
-function gi() { curl -L -s https://www.gitignore.io/api/"$@" ;}
+function gi() { curl -L -s https://www.gitignore.io/api/"$*" ;}
 function serve() { [ $1 ] && port=$1 || port=4567; python -m SimpleHTTPServer $port ;}
 
-# ENV VARS
-if [[ -f ${HOME}/.env ]]; then
-	. ${HOME}/.env
-fi
+# gcloud
+source /usr/local/bin/google-cloud-sdk/path.bash.inc
+source /usr/local/bin/google-cloud-sdk/completion.bash.inc
 
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
