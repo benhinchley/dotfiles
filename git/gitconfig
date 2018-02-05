@@ -1,0 +1,50 @@
+# many things from jessfraz/dotfiles/.gitconfig
+
+[alias]
+    # View abbreviated SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+    # View history graph of the all commits
+    lg = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)>%Creset' --abbrev-commit
+
+	# View the current working tree status using the short format
+	s = status -s
+
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+    # Switch to a branch, creating it if necessary
+	go = "!f() { git checkout \"$1\" 2> /dev/null || git checkout -b \"$1\"; }; f"
+
+    # from seth vargo https://gist.github.com/sethvargo/6b2f7b592853381690bfe3bd00947e8f
+    undo = !git reset HEAD~1 --mixed
+    amend = !git commit --amend
+
+    # gitignore.io
+    ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+
+[core]
+	# Use custom `.gitignore` and `.gitattributes`
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+
+	# Treat spaces before tabs and all kinds of trailing whitespace as an error
+	# [default] trailing-space: looks for spaces at the end of a line
+	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+	# Make `git rebase` safer on OS X
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
+	editor = vim
+
+[diff]
+	# Detect copies as well as renames
+	renames = copies
+
+[help]
+	# Automatically correct and execute mistyped commands
+	autocorrect = 1
+
+[commit]
+	gpgsign = true
