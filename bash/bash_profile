@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-if [[ $- == *i* && -f $HOME/.bashrc ]]; then
-	# env vars
-	if [[ -f ${HOME}/.env ]]; then
-		source "$HOME/.env"
+if [[ $- == *i* && -f "$HOME/.bashrc" ]]; then
+	# load private environment variables and tokens
+	# before .bashrc
+	if [[ -f "$HOME/.bash_private" ]]; then
+		source "$HOME/.bash_private"
 	fi
 
 	source "$HOME/.bashrc"
