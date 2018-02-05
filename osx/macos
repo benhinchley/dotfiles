@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+# restart automatically if the computer freezes
+sudo systemsetup -setrestartfreeze on
+
+# disable Notification Center and remove the menu bar icon
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
+# check for software updates daily
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# set the keyboard repeat rate of your dreams
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# require pass immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# show hidden files
+defaults write com.apple.Finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
+# when performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# avoid creating .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# making the dock a littler nicer
+defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0
+
+# don't send search queries to Apple
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+# disable annoying backswipe in Chrome
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+
+# enabling UTF-8 ONLY in Terminal
+defaults write com.apple.terminal StringEncodings -array 4
+
+# prevent time machine from propting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# disabling local time machine backups
+hash tmutil &> /dev/null && sudo tmutil disablelocal
