@@ -11,4 +11,5 @@
 ```
 **License:** [WTFPL](LICENSE)
 
-Run `sh setup.sh` to setup.
+## install
+`curl -fsSL https://raw.githubusercontent.com/benhinchley/dotfiles/master/install.bash | bash -`
