@@ -16,6 +16,14 @@
     # Switch to a branch, creating it if necessary
 	go = "!f() { git checkout \"$1\" 2> /dev/null || git checkout -b \"$1\"; }; f"
 
+	branches = branch -a
+	remotes = remote -v
+	tags = tag -l
+
+	# Remove branches that have already been merged with master
+	# a.k.a. ‘delete merged’
+	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d; git remote -v update -p"
+
     # from seth vargo https://gist.github.com/sethvargo/6b2f7b592853381690bfe3bd00947e8f
     undo = !git reset HEAD~1 --mixed
     amend = !git commit --amend
