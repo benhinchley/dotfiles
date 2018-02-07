@@ -14,7 +14,8 @@ alias la="ls -laF"
 alias ls="command ls"
 alias mkdir="mkdir -p"
 alias ping="ping -c 10"
-alias g="hub"
+alias git="hub"
+alias g="git"
 alias m="make"
 
 # functions
@@ -34,6 +35,9 @@ export GPG_TTY
 # gcloud
 if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/google-cloud-sdk/path.bash.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
+if which dev_appserver.py > /dev/null; then
+    alias devappserver="dev_appserver.py"
+fi
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -43,8 +47,12 @@ export FZF_DEFAULT_OPTS="--no-mouse --ansi --cycle"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # go
-export GOPATH="$HOME/.go/thirdparty:$GOPROJECTSPATH"
-export PATH="$HOME/.go/thirdparty/bin:$GOPROJECTSPATH/bin:$PATH"
+export GOPATH="$HOME/.go/thirdparty:$HOME/.go/projects"
+export PATH="$HOME/.go/thirdparty/bin:$HOME/.go/projects/bin:$PATH"
+export CDPATH=${CDPATH}:$HOME/.go/projects/src/github.com:$HOME/.go/projects/src
+
+# repositories
+export CDPATH=${CDPATH}:$HOME/.code/github.com
 
 # coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
