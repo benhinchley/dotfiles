@@ -54,5 +54,10 @@
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+	insteadOf = "github:"
+	insteadOf = "git://github.com/"
+
 [commit]
 	gpgsign = true
