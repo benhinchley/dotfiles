@@ -8,8 +8,11 @@ if [ ! -d "$HOME/.dotfiles" ]; then
 fi
 
 pushd ~/.dotfiles > /dev/null
-source osx/macos
-source osx/homebrew  2> /dev/null
+if [ $(uname -s) == "Darwin" ]; then
+    source osx/macos
+    source osx/homebrew
+fi
+
 source bash/install.bash
 source git/install.bash
 source vim/install.bash
