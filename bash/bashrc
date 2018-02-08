@@ -21,6 +21,22 @@ alias m="make"
 # functions
 serve() { [ "$1" ] && port=$1 || port=4567; python -m SimpleHTTPServer $port ;}
 
+goinstall() {
+	if [[ $# -ne 1 ]]; then
+		echo "version number needed"
+		return 1
+	fi
+
+	local VERSION="$1"
+
+	echo "downloading go $VERSION"
+	curl -o "$HOME/Downloads/go$VERSION.tar.gz" -sL \
+		"https://dl.google.com/go/go$VERSION.darwin-amd64.tar.gz"
+
+	echo "installing go $VERSION"
+	sudo tar -C /usr/local -xzf "$HOME/Downloads/go$VERSION.tar.gz"
+}
+
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=50000000;
 export HISTFILESIZE=$HISTSIZE;
@@ -48,7 +64,7 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # go
 export GOPATH="$HOME/.go/thirdparty:$HOME/.go/projects"
-export PATH="$HOME/.go/thirdparty/bin:$HOME/.go/projects/bin:$PATH"
+export PATH="$HOME/.go/thirdparty/bin:$HOME/.go/projects/bin:$PATH:/usr/local/go/bin"
 export CDPATH=${CDPATH}:$HOME/.go/projects/src/github.com:$HOME/.go/projects/src
 
 # repositories
