@@ -13,7 +13,7 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # set the keyboard repeat rate of your dreams
-defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain KeyRepeat -int 5
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # disable auto-correct
