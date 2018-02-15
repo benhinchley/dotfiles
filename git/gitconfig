@@ -26,6 +26,9 @@ branches = branch -a
 remotes = remote -v
 tags = tag -l
 
+# from trevor bramble https://twitter.com/TrevorBramble/status/774292970681937920
+aliases=!git config -l | grep ^alias | cut -c 7- | sort
+
 # Remove branches that have already been merged with master
 # a.k.a. ‘delete merged’
 dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d; git remote -v update -p"
