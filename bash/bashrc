@@ -19,7 +19,7 @@ alias g="git"
 alias m="make"
 
 # functions
-serve() { [ "$1" ] && port=$1 || port=4567; python -m SimpleHTTPServer $port ;}
+csv() { sed -e 's/,,/, ,/g' | column -s, -t | less -\#5 -N -S ;}
 
 goinstall() {
 	if [[ $# -ne 1 ]]; then
