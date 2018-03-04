@@ -56,13 +56,19 @@ export GPG_TTY
 # gcloud
 if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/google-cloud-sdk/path.bash.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
+if [ -d "/usr/local/go_appengine" ]; then export PATH="/usr/local/go_appengine:$PATH"; fi
 if which dev_appserver.py > /dev/null; then
     alias devappserver="dev_appserver.py"
 fi
 
 # fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_OPTS="--no-mouse --ansi --cycle"
+[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+export FZF_DEFAULT_OPTS="--no-mouse --ansi --cycle --reverse --no-height \
+	--color=info:243,prompt:243,pointer:46,spinner:201 \
+	--color=fg:7,bg:233,hl:190,hl+:190"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'head -100 {}'"
 
 # python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
