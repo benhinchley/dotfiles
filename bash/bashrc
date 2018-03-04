@@ -29,11 +29,16 @@ goinstall() {
 
 	local VERSION="$1"
 
-	echo "downloading go $VERSION"
-	curl -o "$HOME/Downloads/go$VERSION.tar.gz" -sL \
-		"https://dl.google.com/go/go$VERSION.darwin-amd64.tar.gz"
+	if [ ! -f "$HOME/Downloads/go$VERSION.tar.gz" ]; then
+		echo "downloading go $VERSION"
+		curl -o "$HOME/Downloads/go$VERSION.tar.gz" -sL \
+			"https://dl.google.com/go/go$VERSION.darwin-amd64.tar.gz"
+	fi
 
-	echo "installing go $VERSION"
+	echo "removing go $(go version | sed 's/go version go//')"
+	sudo rm -rf /usr/local/go
+
+	echo "installing go $VERSION darwin/amd64"
 	sudo tar -C /usr/local -xzf "$HOME/Downloads/go$VERSION.tar.gz"
 }
 
@@ -73,9 +78,6 @@ export CDPATH=${CDPATH}:$HOME/.code/github.com
 # coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
-# jump
-eval "$(jump shell)"
 
 # direnv
 eval "$(direnv hook bash)"
