@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-(which brew > /dev/null) || {
+(command -v brew > /dev/null) || {
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
 brew tap caskroom/cask
-brew install git hub tig jump direnv fzf bash-completion coreutils shellcheck gpg vim node yarn go protobuf
+brew install git git-lfs hub direnv fzf fd bash-completion coreutils shellcheck gpg vim protobuf
 brew cask install font-fira-code

@@ -16,8 +16,8 @@ d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-
 # Show diff of staged files
 dc = diff --cached
 
-# Switch to a branch, creating it if necessary
-go = "!f() { git checkout \"$1\" 2> /dev/null || git checkout -b \"$1\"; }; f"
+# go to branch
+go = "!f() { local branch=$(git branch --all | grep -v HEAD | fzf --no-height | sed 's/.* //' | sed 's#remotes/[^/]*/##' ); git checkout $branch 2> /dev/null; }; f"
 
 # Create pull request
 pr = pull-request

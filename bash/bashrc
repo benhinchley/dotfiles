@@ -17,6 +17,9 @@ alias ping="ping -c 10"
 alias git="hub"
 alias g="git"
 alias m="make"
+alias k="kubectl"
+alias kubectl="command kubectl"
+alias r="review"
 
 # functions
 csv() { sed -e 's/,,/, ,/g' | column -s, -t | less -\#5 -N -S ;}
@@ -56,9 +59,8 @@ export GPG_TTY
 # gcloud
 if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/google-cloud-sdk/path.bash.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
-if [ -d "/usr/local/go_appengine" ]; then export PATH="/usr/local/go_appengine:$PATH"; fi
-if which dev_appserver.py > /dev/null; then
-    alias devappserver="dev_appserver.py"
+if command -v dev_appserver.py > /dev/null; then
+    alias dev_appserver="dev_appserver.py"
 fi
 
 # fzf
@@ -87,3 +89,8 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # direnv
 eval "$(direnv hook bash)"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

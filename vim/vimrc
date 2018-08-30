@@ -27,7 +27,8 @@ Plug 'bronson/vim-trailing-whitespace' " highlight trailing whitespace
 Plug 'w0rp/ale'                        " async linter runner
 Plug 'majutsushi/tagbar', { 'for': ['go', 'rust'] }
 
-Plug 'fatih/vim-go', { 'for': 'go' } " the ultimate go dev expierence
+Plug 'fatih/vim-go', { 'for': 'go' } " go dev
+Plug 'leafgarland/typescript-vim'    " typescript syntax
 call plug#end()
 
 " show relative numbers when in normal mode
@@ -53,7 +54,7 @@ let g:airline_powerline_fonts=0
 :call matchadd('ColorColumn', '\%101v', 100)
 
 " nercommenter
-let g:NERDSpaceDelims = 1 " Add spaces agfter comment delimiters
+let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters
 
 " KEY REMAPS
 " disable arrow keys

@@ -8,7 +8,7 @@ if [ ! -d "$HOME/.dotfiles" ]; then
 fi
 
 pushd ~/.dotfiles > /dev/null
-if [ $(uname -s) == "Darwin" ]; then
+if [ "$(uname -s)" == "Darwin" ]; then
     source osx/macos
     source osx/homebrew
 fi
