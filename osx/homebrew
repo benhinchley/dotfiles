@@ -5,5 +5,5 @@
 }
 
 brew tap caskroom/cask
-brew install git git-lfs hub direnv fzf fd bash-completion coreutils shellcheck gpg vim protobuf
+brew install git git-lfs hub direnv fzf fd bash-completion coreutils shellcheck vim protobuf bat jq ripgrep
 brew cask install font-fira-code
