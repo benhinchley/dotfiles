@@ -21,6 +21,7 @@ alias m="make"
 alias k="kubectl"
 alias kubectl="command kubectl"
 alias r="review"
+alias go111="go1.11.13"
 
 # functions
 csv() { sed -e 's/,,/, ,/g' | column -s, -t | less -\#5 -N -S ;}
@@ -65,7 +66,7 @@ if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/google-
 if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
 export CLOUDSDK_PYTHON=$(command -v python2)
 if command -v dev_appserver.py > /dev/null; then
-    alias dev_appserver="dev_appserver.py --support_datastore_emulator=True"
+    alias dev_appserver="dev_appserver.py --support_datastore_emulator=False"
 fi
 
 # fzf
@@ -81,12 +82,16 @@ export FZF_CTRL_T_OPTS="--preview 'head -100 {}'"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # go
-export GOPATH="$HOME/.go/thirdparty:$HOME/.go/projects"
-export PATH="$HOME/.go/thirdparty/bin:$HOME/.go/projects/bin:$PATH:/usr/local/go/bin"
-export CDPATH=${CDPATH}:$HOME/.go/projects/src/github.com:$HOME/.go/projects/src
+export GOPATH="$HOME/Documents/code"
+export PATH="$HOME/Documents/code/bin:$PATH:/usr/local/go/bin"
+export CDPATH=${CDPATH}:$HOME/Documents/code/src
+export GO111MODULE=auto
+export GOPROXY="http://localhost:9191,https://proxy.golang.org,direct"
+export GONOSUMDB="code.sajari.com"
 
-# repositories
-export CDPATH=${CDPATH}:$HOME/.code/github.com
+# ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 
 # coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"

@@ -4,6 +4,6 @@
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
-brew tap caskroom/cask
+# brew tap caskroom/cask
+# brew cask install font-fira-code
 brew install git git-lfs hub direnv fzf fd bash-completion coreutils shellcheck vim protobuf bat jq ripgrep
-brew cask install font-fira-code
