@@ -1,0 +1,27 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "homebrew/cask-fonts"
+
+cask "1password"
+cask "google-chrome"
+cask "raycast"
+cask "iterm2"
+
+cask "font-blex-mono-nerd-font"
+
+brew "fish"
+
+brew "git"
+brew "gh"
+brew "git-delta"
+
+brew "neovim"
+brew "asdf"
+
+brew "coreutils"
+brew "ripgrep"
+brew "fd"
+brew "jq"
+brew "bat"
+
+cask "google-cloud-sdk"

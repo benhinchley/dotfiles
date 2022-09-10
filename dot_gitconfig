@@ -1,0 +1,42 @@
+[init]
+defaultBranch = main
+
+[user]
+name = Benjamin Hinchley
+email = 7188324+benhinchley@users.noreply.github.com
+signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPePktOfnpvdAWoIM5MjDXQaSypzu8iNFviUCOKUqWh
+
+[github]
+user = benhinchley
+
+[core]
+excludesFile = ~/.gitignore
+whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+trustctime = false
+pager = delta
+
+[diff]
+renames = copies
+colorMoved = default
+
+[pull]
+rebase = true
+
+[interactive]
+diffFilter = delta --color-only --features=interactive
+
+[delta]
+navigate = true
+line-numbers = true
+
+[url "ssh://git@github.com/"]
+insteadOf = https://github.com/
+
+[gpg]
+format = ssh
+
+[gpg "ssh"]
+program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+gpgsign = true
