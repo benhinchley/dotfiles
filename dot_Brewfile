@@ -5,10 +5,10 @@ tap "homebrew/cask-fonts"
 cask "1password"
 cask "google-chrome"
 cask "raycast"
-cask "iterm2"
 
+cask "kitty"
+cask "amethyst"
 cask "font-blex-mono-nerd-font"
-
 brew "fish"
 
 brew "git"
