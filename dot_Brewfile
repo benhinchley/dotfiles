@@ -26,5 +26,6 @@ brew "ripgrep"
 brew "fd"
 brew "jq"
 brew "bat"
+brew "wget"
 
 cask "google-cloud-sdk"
