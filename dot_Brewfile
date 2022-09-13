@@ -11,6 +11,7 @@ cask "kitty"
 cask "amethyst"
 cask "font-blex-mono-nerd-font"
 brew "fish"
+brew "tmux"
 
 brew "git"
 brew "gh"
