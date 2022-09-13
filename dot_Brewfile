@@ -19,6 +19,7 @@ brew "git-delta"
 
 brew "neovim"
 brew "asdf"
+brew "go"
 
 brew "coreutils"
 brew "ripgrep"
