@@ -2,9 +2,10 @@ tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "bufbuild/buf"
 
 cask "1password"
-cask "google-chrome"
+# cask "google-chrome"
 cask "raycast"
 
 cask "kitty"
@@ -29,3 +30,5 @@ brew "bat"
 brew "wget"
 
 cask "google-cloud-sdk"
+brew "terraform"
+brew "bufbuild/buf/buf"
