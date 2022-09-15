@@ -1,7 +1,7 @@
 (require-macros :hibiscus.vim)
 (local {: setup} (require :nvim.pkg))
 
-(setup :trouble)
+(setup :trouble {:icons false})
 (map! [n] "<leader>xx" "<cmd>Trouble<cr>")
 
 (fn on_attach [client bufnr]
