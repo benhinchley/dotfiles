@@ -1,3 +1,10 @@
+floating-is-blacklist: true
+
+# osascript -e 'id of app "AppName"'
+floating:
+  - com.1password.1password
+  - com.apple.systempreferences
+
 layouts:
   - tall
   - fullscreen
