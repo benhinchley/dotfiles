@@ -1,0 +1,6 @@
+[data]
+{{ if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "amd64")) }}
+brewpath = "/usr/local/bin/brew"
+{{ else if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64")) }}
+brewpath = "/opt/homebrew/bin/brew"
+{{ end }}

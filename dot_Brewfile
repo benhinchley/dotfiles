@@ -7,6 +7,7 @@ tap "bufbuild/buf"
 cask "1password"
 # cask "google-chrome"
 cask "raycast"
+cask "hammerspoon"
 
 cask "kitty"
 cask "amethyst"

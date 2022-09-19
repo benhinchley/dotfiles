@@ -2,8 +2,4 @@
 
 # .Brewfile hash: {{include "dot_Brewfile" | sha256sum }}
 
-{{- if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "amd64")) }}
-/usr/local/bin/brew bundle install --global --no-lock
-{{- else }}
-/opt/homebrew/bin/brew bundle install --global --no-lock
-{{ end }}
+{{ .brewpath }} bundle install --global --no-lock
