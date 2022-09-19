@@ -5,7 +5,6 @@ tap "homebrew/cask-fonts"
 tap "bufbuild/buf"
 
 cask "1password"
-# cask "google-chrome"
 cask "raycast"
 cask "hammerspoon"
 
