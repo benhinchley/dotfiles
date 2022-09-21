@@ -7,6 +7,7 @@ tap "bufbuild/buf"
 cask "1password"
 cask "raycast"
 cask "hammerspoon"
+cask "betterdisplay"
 
 cask "kitty"
 cask "amethyst"
