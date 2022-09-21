@@ -10,7 +10,7 @@
 (local log (logger.new "hwm" "debug"))
 
 (fn highlight-window [window]
-  (let [cnvs (hs.canvas.new window:frame)
+  (let [cnvs (hs.canvas.new (window:frame))
         elem {:type :rectangle
               :action :stroke
               :strokeWidth 5.0
