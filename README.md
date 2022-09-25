@@ -10,6 +10,3 @@
 1. `echo "$(which fish)" | sudo tee -a /etc/shells`
 1. `chsh -s $(which fish)`
 1. Restart the machine (`sudo reboot`)
-
-## Installing `fisher`
-1. `curl -sL https://git.io/fisher | source && fisher update`

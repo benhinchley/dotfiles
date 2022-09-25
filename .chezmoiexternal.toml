@@ -10,3 +10,13 @@ args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "fennel-1.
 type = "git-repo"
 url = "https://github.com/tmux-plugins/tpm"
 refreshPeriod = "168h"
+
+[".config/fish/functions/fisher.fish"]
+type = "file"
+url = "https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish"
+refreshPeriod = "168h"
+
+[".config/fish/completions/fisher.fish"]
+type = "file"
+url = "https://raw.githubusercontent.com/jorgebucaran/fisher/main/completions/fisher.fish"
+refreshPeriod = "168h"
