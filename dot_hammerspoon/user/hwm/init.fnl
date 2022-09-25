@@ -9,45 +9,52 @@
 
 (local log (logger.new "hwm" "debug"))
 
+(local win-filter
+  (: (: (win.filter.new) :setDefaultFilter) :setOverrideFilter {:visible true
+                                                                :fullscreen false
+                                                                :currentSpace true
+                                                                :allowRoles ["AXStandardWindow"]}))
+
+(fn tile []
+  (when (eq (#hs.mouse.getButtons) 0)
+    (log:d "hello world")))
+
+(fn setup []
+  (win-filter:subscribe [win.filter.windowsChanged] tile)
+  (tile))
+
 (fn highlight-window [window]
   (let [cnvs (hs.canvas.new (window:frame))
         elem {:type :rectangle
               :action :stroke
-              :strokeWidth 5.0
-              :stokeColor {:red 1.0 :green 1.0}}]
+              :strokeWidth 10.0
+              :strokeColor {:red 1.0 :green 1.0}}]
     (cnvs:appendElements elem)
-    (hs.time.doAfter 0.3 #(cnvs:delete))))
+    (cnvs:show)
+    (hs.timer.doAfter 0.3 #(cnvs:hide))))
+
+(macro focus-window [direction ?window]
+  `(let [fw# (or ?window (win.focusedWindow))]
+    (: win-filter (.. "focusWindow" ,direction) fw# nil true)
+    (win.focusedWindow)))
 
 (fn focus-window-left [?window]
-  (let [fw (or ?window (win.focusedWindow))
-        curr-workspace win.filter.defaultCurrentSpace]
-    (curr-workspace:focusWindowWest fw nil true)
-    (win.focusedWindow)))
+  (focus-window :West ?window))
 
 (fn focus-window-down [?window]
-  (let [fw (or ?window (win.focusedWindow))
-        curr-workspace win.filter.defaultCurrentSpace]
-    (curr-workspace:focusWindowSouth fw nil true)
-    (win.focusedWindow)))
+  (focus-window :South ?window))
 
 (fn focus-window-up [?window]
-  (let [fw (or ?window (win.focusedWindow))
-        curr-workspace win.filter.defaultCurrentSpace]
-    (curr-workspace:focusWindowNorth fw nil true)
-    (win.focusedWindow)))
+  (focus-window :North ?window))
 
 (fn focus-window-right [?window]
-  (let [fw (or ?window (win.focusedWindow))
-        curr-workspace win.filter.defaultCurrentSpace]
-    (curr-workspace:focusWindowEast fw nil true)
-    (win.focusedWindow)))
+  (focus-window :East ?window))
 
 ;; (fn move-window-left [] )
 ;; (fn move-window-down [] )
 ;; (fn move-window-up [] )
 ;; (fn move-window-right [] )
 
-;; (fn switch-workspace [workspace-id] )
 ;; (fn move-window-to-workspace [window-id workspace-id] )
 ;; (fn set-workspace-layout [workspace-id layout-id] )
 
@@ -55,3 +62,10 @@
 ;; (fn toggle-window-float [window-id] )
 
 ;; (fn focus-screen [screen-id] )
+
+{: setup
+ : highlight-window
+ : focus-window-left
+ : focus-window-down
+ : focus-window-up
+ : focus-window-right}

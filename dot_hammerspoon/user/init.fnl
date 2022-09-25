@@ -1,8 +1,5 @@
 (local {:application app
-        :hotkey hotkey
-        :logger logger} hs)
-
-(local log (logger.new :user :debug))
+        :hotkey hotkey} hs)
 
 ;; reload hammerspoon config
 (hotkey.bind [:option :shift] :c #(hs.reload))
@@ -15,4 +12,11 @@
 ;; open new terminal
 (hotkey.bind [:option] :return #(open-kitty-terminal))
 
-(require :user.hwm)
+(local hwm (require :user.hwm))
+
+(hotkey.bind [:option :shift] :space #(hwm.highlight-window (hs.window.focusedWindow)))
+
+(hotkey.bind [:option] :h #(hwm.focus-window-left))
+(hotkey.bind [:option] :j #(hwm.focus-window-down))
+(hotkey.bind [:option] :k #(hwm.focus-window-up))
+(hotkey.bind [:option] :l #(hwm.focus-window-right))
