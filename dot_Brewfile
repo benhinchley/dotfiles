@@ -1,7 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 tap "bufbuild/buf"
 
 cask "firefox"
@@ -12,7 +11,6 @@ cask "betterdisplay"
 
 cask "kitty"
 cask "amethyst"
-cask "font-blex-mono-nerd-font"
 brew "fish"
 brew "tmux"
 
