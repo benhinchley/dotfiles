@@ -16,12 +16,8 @@
                                                                 :allowRoles ["AXStandardWindow"]}))
 
 (fn tile []
-  (when (eq (#hs.mouse.getButtons) 0)
-    (log:d "hello world")))
-
-(fn setup []
-  (win-filter:subscribe [win.filter.windowsChanged] tile)
-  (tile))
+  (when (= (#hs.mouse.getButtons) 0)
+    (log:d "tiling function goes here")))
 
 (fn highlight-window [window]
   (let [cnvs (hs.canvas.new (window:frame))
@@ -63,8 +59,7 @@
 
 ;; (fn focus-screen [screen-id] )
 
-{: setup
- : highlight-window
+{: highlight-window
  : focus-window-left
  : focus-window-down
  : focus-window-up
