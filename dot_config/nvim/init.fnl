@@ -1,7 +1,9 @@
 (require-macros :hibiscus.vim)
 (local {: setup} (require :nvim.pkg))
 
-;; (g! python3_host_prog "/usr/bin/python3")
+(let [python3 (: (vim.fn.system "which python3") :gsub "%s+" "")]
+  (g! python3_host_prog python3))
+
 (g! loaded_ruby_provider 0)
 (g! loaded_node_provider 0)
 (g! loaded_perl_provider 0)
