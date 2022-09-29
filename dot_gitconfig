@@ -22,6 +22,9 @@ colorMoved = default
 [pull]
 rebase = true
 
+[push]
+autoSetupRemote = true
+
 [interactive]
 diffFilter = delta --color-only --features=interactive
 
