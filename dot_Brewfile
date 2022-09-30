@@ -10,7 +10,6 @@ cask "hammerspoon"
 cask "betterdisplay"
 
 cask "kitty"
-cask "amethyst"
 brew "fish"
 brew "tmux"
 
