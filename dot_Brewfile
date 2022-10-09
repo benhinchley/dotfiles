@@ -8,6 +8,9 @@ cask "1password"
 cask "raycast"
 cask "hammerspoon"
 cask "betterdisplay"
+brew "mas"
+
+cask "obsidian"
 
 cask "kitty"
 brew "fish"
