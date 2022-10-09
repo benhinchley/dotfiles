@@ -32,6 +32,10 @@
   (use! :tpope/vim-vinegar)
   (use! :tpope/vim-unimpaired)
 
+  ;; movement
+  (use! :ggandor/leap.nvim
+        :requires [:tpope/vim-repeat])
+
   ;; git
   (use! :tpope/vim-fugitive)
 

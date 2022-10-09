@@ -13,6 +13,9 @@
 (set! termguicolors true)
 (exec [[:colorscheme "falcon"]])
 
+;; stop the mouse
+(set! mouse nil)
+
 (let [navic (require :nvim-navic)
       comp (fn [mode ?opts] (vim.tbl_extend :keep {1 mode} (or ?opts {})))]
   (setup :lualine
