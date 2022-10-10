@@ -15,6 +15,7 @@ cask "obsidian"
 cask "kitty"
 brew "fish"
 brew "tmux"
+brew "fzf"
 
 brew "git"
 brew "gh"
