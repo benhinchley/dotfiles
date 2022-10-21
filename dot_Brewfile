@@ -12,6 +12,7 @@ brew "mas"
 
 cask "obsidian"
 mas "Muse", id: 1501563902
+mas "Things 3", id: 904280696
 
 cask "kitty"
 brew "fish"
