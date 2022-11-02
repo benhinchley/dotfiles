@@ -1,9 +1,12 @@
+require "socket"
+
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/cask"
 tap "bufbuild/buf"
 
-cask "firefox"
+cask "google-chrome", greedy: true
+cask "firefox", greedy: true
 cask "1password"
 cask "raycast"
 cask "hammerspoon"
@@ -12,7 +15,7 @@ brew "mas"
 
 cask "obsidian"
 mas "Muse", id: 1501563902
-mas "Things 3", id: 904280696
+mas "Things 3", id: 904280696 if Socket.gethostname == "XXX_TODO_WORK_MACHINE_HOSTNAME_XXX"
 
 cask "kitty"
 brew "fish"
