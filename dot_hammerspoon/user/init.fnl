@@ -17,10 +17,10 @@
 
 (hotkey.bind [:option :shift] :space #(hwm.highlight-window (hs.window.focusedWindow)))
 
-;; (hotkey.bind [:option] :h #(hwm.focus-window-left))
-;; (hotkey.bind [:option] :j #(hwm.focus-window-down))
-;; (hotkey.bind [:option] :k #(hwm.focus-window-up))
-;; (hotkey.bind [:option] :l #(hwm.focus-window-right))
+(hotkey.bind [:option] :h #(hwm.focus-window-left))
+(hotkey.bind [:option] :j #(hwm.focus-window-down))
+(hotkey.bind [:option] :k #(hwm.focus-window-up))
+(hotkey.bind [:option] :l #(hwm.focus-window-right))
 
 ;; remove window animations
 (tset hs.window :animationDuration 0.0)
@@ -36,13 +36,15 @@
 
 (local grid-screen-vert-frame (hs.geometry.rect -1440.0 400.0 1440.0 1440.0))
 
+(local home-display "353BA702-4925-19B4-AC08-B9EFD334380E")
 (local work-displays {:main "7AD1BAC2-EC34-4DD8-B12A-AAE889193DD6"
                       :vert "08DD48DC-D608-4222-B7B1-DCC7418192FC"})
 
 (let [hyper [:ctrl :option]
       hk (hotkey.modal.new hyper :w)
-      main-grid (grid.setGrid "4x6" work-displays.main)
-      vert-grid (grid.setGrid "6x4" work-displays.vert grid-screen-vert-frame)]
+      home-grid (grid.setGrid "4x6" home-display)
+      work-main-grid (grid.setGrid "4x6" work-displays.main)
+      work-vert-grid (grid.setGrid "6x4" work-displays.vert grid-screen-vert-frame)]
   (hk:bind "" :escape #(hk:exit))
 
   (var border nil)
@@ -53,7 +55,8 @@
                            :action :stroke
                            :strokeWidth 10.0
                            :strokeColor {:red 1.0}} 1)
-    (if (= (current-screen-uuid) work-displays.main)
+    (if (or (= (current-screen-uuid) work-displays.main)
+            (= (current-screen-uuid) home-display))
       (border:frame (current-screen-frame))
       (border:frame grid-screen-vert-frame))
     (border:show))
