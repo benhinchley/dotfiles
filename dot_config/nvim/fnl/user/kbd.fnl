@@ -27,6 +27,3 @@
   (map! [n] "zR" '((. ufo :openAllFolds)))
   (map! [n] "zM" '((. ufo :closeAllFolds)))
   (map! [n] "zm" '((. ufo :closeFoldsWith))))
-
-(let [leap (require :leap)]
-  (leap.set_default_keymaps))
