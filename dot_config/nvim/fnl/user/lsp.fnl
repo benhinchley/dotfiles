@@ -40,7 +40,7 @@
     ;;                             :group (augroup "LSPFormatOnSave")}))
     ))
 
-(fn lsp [name ?settings]
+(fn lsp-setup [name ?settings]
   (let [capabilities (vim.lsp.protocol.make_client_capabilities)]
     ((. (. (require :lspconfig) name) :setup) {:on_attach on_attach
                                                :capabilities capabilities
@@ -50,4 +50,4 @@
 (setup :mason-lspconfig {:automatic_installation true})
 
 ;; lsp server configurations
-(lsp :gopls)
+(lsp-setup :gopls)
