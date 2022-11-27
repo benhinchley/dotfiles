@@ -1,7 +1,6 @@
 require "socket"
 work_machine = Socket.gethostname == "PEO-M1P-BH.local"
 
-
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/cask"
@@ -29,6 +28,7 @@ brew "git-delta"
 
 brew "neovim"
 brew "asdf"
+brew "pipx"
 brew "go"
 
 brew "coreutils"
