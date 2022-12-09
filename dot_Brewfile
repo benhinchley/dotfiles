@@ -42,3 +42,16 @@ brew "wget"
 cask "google-cloud-sdk"
 brew "terraform"
 brew "bufbuild/buf/buf"
+
+# ruby build env deps
+brew "openssl@3"
+brew "readline"
+brew "libyaml"
+brew "gmp"
+
+# erlang build env deps
+brew "autoconf"
+brew "openssl@1.1"
+
+
+cask "visual-studio-code"
