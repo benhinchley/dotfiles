@@ -51,3 +51,7 @@
 
 ;; lsp server configurations
 (lsp-setup :gopls)
+(lsp-setup :tsserver)
+
+(lsp-setup :bufls)
+(lsp-setup :terraformls)
