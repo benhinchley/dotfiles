@@ -20,3 +20,8 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://raw.githubusercontent.com/jorgebucaran/fisher/main/completions/fisher.fish"
 refreshPeriod = "168h"
+
+[".config/kitty/kitty.falcon.conf"]
+type = "file"
+url = "https://raw.githubusercontent.com/fenetikm/falcon/master/kitty/kitty.falcon.conf"
+refreshPeriod = "168h"
