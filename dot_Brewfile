@@ -6,8 +6,8 @@ tap "homebrew/core"
 tap "homebrew/cask"
 tap "bufbuild/buf"
 
-cask "google-chrome", greedy: true unless work_machine
-cask "firefox", greedy: true
+cask "google-chrome", force: true unless work_machine
+cask "firefox", force: true
 cask "1password"
 cask "raycast"
 cask "hammerspoon"
