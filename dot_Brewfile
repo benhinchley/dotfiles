@@ -6,7 +6,7 @@ tap "homebrew/core"
 tap "homebrew/cask"
 tap "bufbuild/buf"
 
-cask "google-chrome", force: true unless work_machine
+# cask "google-chrome", force: true unless work_machine
 cask "firefox", force: true
 cask "1password"
 cask "raycast"
