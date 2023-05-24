@@ -34,6 +34,7 @@
        : buffers
        : current_buffer_fuzzy_find
        : find_files
+       : git_files
        : live_grep
        : help_tags
        : diagnostics} (require :telescope.builtin)
@@ -45,6 +46,7 @@
                                                    :previewer false})))
 
   (map! [n] "<leader>sf" find_files)
+  (map! [n] "<C-p>" git_files)
   (map! [n] "<leader>sg" live_grep)
   (map! [n] "<leader>sh" help_tags)
   (map! [n] "<leader>sd" diagnostics)

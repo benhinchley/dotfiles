@@ -11,7 +11,7 @@
       (app.launchOrFocusByBundleID "net.kovidgoyal.kitty"))))
 
 ;; open new terminal
-(hotkey.bind [:option] :return #(open-kitty-terminal))
+; (hotkey.bind [:option] :return #(open-kitty-terminal))
 
 (local hwm (require :user.hwm))
 
@@ -36,7 +36,7 @@
 
 (local grid-screen-vert-frame (hs.geometry.rect -1440.0 400.0 1440.0 1440.0))
 
-(local home-display "353BA702-4925-19B4-AC08-B9EFD334380E")
+(local home-display "05D68674-D749-4954-BFDF-EF01DA2E377D")
 (local work-displays {:laptop "37D8832A-2D66-02CA-B9F7-8F30A301B230"
                       :main "7AD1BAC2-EC34-4DD8-B12A-AAE889193DD6"
                       :vert "08DD48DC-D608-4222-B7B1-DCC7418192FC"})
