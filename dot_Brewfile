@@ -7,7 +7,6 @@ tap "homebrew/cask"
 tap "bufbuild/buf"
 tap "1password/tap"
 
-# cask "google-chrome", force: true unless work_machine
 cask "firefox", force: true
 cask "1password"
 cask "raycast"
@@ -17,8 +16,6 @@ brew "mas"
 cask "1password-cli"
 
 cask "obsidian"
-mas "Muse", id: 1501563902
-mas "Things 3", id: 904280696 if work_machine
 cask "kitty"
 brew "fish"
 brew "tmux"
@@ -30,7 +27,6 @@ brew "git-delta"
 
 brew "neovim"
 brew "asdf"
-brew "pipx"
 brew "go"
 
 brew "coreutils"
@@ -45,6 +41,8 @@ cask "google-cloud-sdk"
 brew "terraform"
 brew "bufbuild/buf/buf"
 brew "circleci", ignore_dependencies: true
+brew "crane"
+brew "flyctl"
 
 # ruby build env deps
 brew "openssl@3"
