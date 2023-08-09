@@ -1,9 +1,3 @@
-require "socket"
-work_machine = Socket.gethostname == "PEO-M1P-BH.local"
-
-tap "homebrew/bundle"
-tap "homebrew/core"
-tap "homebrew/cask"
 tap "bufbuild/buf"
 tap "1password/tap"
 
