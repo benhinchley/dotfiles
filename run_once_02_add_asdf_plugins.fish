@@ -13,3 +13,7 @@ end
 if not contains ruby $asdf_plugins
     asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 end
+
+if not contains poetry $asdf_plugins
+    asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
+end

@@ -1,5 +1,7 @@
 tap "bufbuild/buf"
 tap "1password/tap"
+tap "terrastruct/tap"
+tap "hashicorp/tap"
 
 cask "firefox", force: true
 cask "1password"
@@ -18,6 +20,7 @@ brew "fzf"
 brew "git"
 brew "gh"
 brew "git-delta"
+brew "git-lfs"
 
 brew "neovim"
 brew "asdf"
@@ -30,6 +33,10 @@ brew "jq"
 brew "yq"
 brew "bat"
 brew "wget"
+brew "d2"
+brew "tala"
+brew "direnv"
+brew "duckdb"
 
 cask "google-cloud-sdk"
 brew "terraform"
@@ -37,6 +44,7 @@ brew "bufbuild/buf/buf"
 brew "circleci", ignore_dependencies: true
 brew "crane"
 brew "flyctl"
+brew "hashicorp/tap/vault"
 
 # ruby build env deps
 brew "openssl@3"

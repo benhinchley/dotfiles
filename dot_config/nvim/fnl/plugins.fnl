@@ -1,9 +1,9 @@
 (require-macros :hibiscus.packer)
 (local {: setup} (require :nvim.pkg))
 
-(packer-setup)
+(packer-setup! {})
 
-(packer
+(packer!
   (use! :udayvir-singh/tangerine.nvim)
   (use! :udayvir-singh/hibiscus.nvim
         :requires [:udayvir-singh/tangerine.nvim])

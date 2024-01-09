@@ -14,6 +14,7 @@ excludesFile = ~/.gitignore
 whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 trustctime = false
 pager = delta
+autocrlf = false
 
 [diff]
 renames = copies
@@ -43,3 +44,9 @@ program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [commit]
 gpgsign = true
+
+[filter "lfs"]
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
