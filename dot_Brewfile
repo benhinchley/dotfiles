@@ -2,6 +2,7 @@ tap "bufbuild/buf"
 tap "1password/tap"
 tap "terrastruct/tap"
 tap "hashicorp/tap"
+tap "pulumi/tap"
 
 cask "firefox", force: true
 cask "1password"
@@ -45,6 +46,7 @@ brew "circleci", ignore_dependencies: true
 brew "crane"
 brew "flyctl"
 brew "hashicorp/tap/vault"
+brew "pulumi/tap/pulumi"
 
 # ruby build env deps
 brew "openssl@3"
