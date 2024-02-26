@@ -162,3 +162,6 @@ fabric.properties
 .idea/**/azureSettings.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,intellij
+
+## jj - https://github.com/martinvonz/jj
+.jj

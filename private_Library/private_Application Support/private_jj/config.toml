@@ -2,6 +2,10 @@
 email = "7188324+benhinchley@users.noreply.github.com"
 name = "Benjamin Hinchley"
 
+[aliases]
+lm = ["log", "-r", "mine()"]
+l = ["log", "-r", "(main..@):: | (main..@)-"]
+
 # TODO: Figure out why this doesn't work.
 # [ui]
 # diff-editor = "idea"
