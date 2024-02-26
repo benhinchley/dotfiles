@@ -21,7 +21,8 @@ type = "file"
 url = "https://raw.githubusercontent.com/jorgebucaran/fisher/main/completions/fisher.fish"
 refreshPeriod = "168h"
 
-[".config/kitty/kitty.falcon.conf"]
+[".config/kitty/kitty.tokyonight.conf"]
 type = "file"
-url = "https://raw.githubusercontent.com/fenetikm/falcon/master/kitty/kitty.falcon.conf"
+url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/kitty/tokyonight_night.conf"
 refreshPeriod = "168h"
+
