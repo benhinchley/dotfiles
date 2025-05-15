@@ -55,6 +55,7 @@ brew "flyctl"
 brew "hashicorp/tap/vault"
 brew "pulumi/tap/pulumi"
 brew "dagger/tap/dagger"
+brew "helm"
 
 # ruby build env deps
 brew "openssl@3"
