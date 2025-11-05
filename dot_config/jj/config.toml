@@ -8,7 +8,8 @@ max-new-file-size = "3MiB"
 [aliases]
 lm = ["log", "-r", "mine()"]
 l = ["log", "-r", "(main..@):: | (main..@)-"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 
 [ui]
-default-command = ["log", "--no-pager", "-n", "10"]
+default-command = ["log", "--no-pager", "-n", "10", "--reversed"]
 
