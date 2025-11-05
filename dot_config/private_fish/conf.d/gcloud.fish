@@ -1,1 +1,1 @@
-source (brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+source (brew --prefix)/share/google-cloud-sdk/path.fish.inc

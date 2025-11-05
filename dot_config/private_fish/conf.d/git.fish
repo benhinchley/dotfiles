@@ -1,3 +1,3 @@
 if not abbr --query gs
-    abbr --add --universal gs git status
+    abbr --add gs git status
 end
